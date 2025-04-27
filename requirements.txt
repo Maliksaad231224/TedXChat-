@@ -44,7 +44,6 @@ langchain-huggingface==0.1.2
 langchain-pinecone==0.2.5
 langchain-tests==0.3.19
 langchain-text-splitters==0.3.8
-langchainplus-sdk==0.0.20
 langsmith==0.3.37
 loguru==0.7.3
 lz4==4.4.4
@@ -68,7 +67,7 @@ pluggy==1.5.0
 propcache==0.3.1
 protobuf==5.29.4
 protoc-gen-openapiv2==0.0.1
-pydantic==2.11.3
+pydantic==1.10.17
 pydantic-settings==2.9.1
 pydantic_core==2.33.1
 pypdf==5.4.0
