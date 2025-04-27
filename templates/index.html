@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TedxPal</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <!-- <img src="{{ url_for('static', filename='logo.png') }}" alt="TedX Logo"> -->
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="TedX Logo">
+                <h2>TedX<span>Pal</span></h2>
+            </div>
+            
+            <div class="model-selector">
+                <div class="selector-label">
+                    <i class="fas fa-robot"></i>
+                    <span>Model Selection</span>
+                </div>
+                <select class="model-dropdown" id="model-dropdown">
+                    <option value="" disabled selected hidden>Choose LLM</option>
+                    <option value="cohere">Cohere</option>
+                    <option value="deepseek">Deepseek</option>
+                    <option value="mistral">Mistral</option>
+                    <option value="llama">LLaMA</option>
+                   
+                    <option value="gemma2-9b-it">Gemma 2</option>
+                  </select>
+            </div>
+            
+            <div class="conversation-history">
+                <div class="history-header">
+                    <i class="fas fa-history"></i>
+                    <span>Conversation History</span>
+                </div>
+                <ul class="history-list">
+                    <li class="history-item active">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>New Chat</span>
+                    </li>
+                    <!-- Here we can add more history elements -->
+                </ul>
+            </div>
+            
+            <div class="sidebar-footer">
+                <button class="clear-chat">
+                    <i class="fas fa-trash-alt"></i>
+                    <span>Clear Chat</span>
+                </button>
+                <div class="settings-btn">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="main-content">
+            <header class="chat-header">
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <h1 class="chat-title">TedX Chat</h1>
+                <div class="header-actions">
+                    <button class="theme-toggle" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="expand-btn" title="Expand View">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div id="particles-js" class="particles-background"></div>
+            
+            <div id="chatBox" class="chat-messages">
+                <div class="welcome-message">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="TedX Logo" class="circular-logo">>
+                    <h2>Welcome to TedX Chat</h2>
+                    <p>Ask me anything or try one of these examples:</p>
+                    <div class="example-prompts">
+                        <button class="example-prompt">How do I beat Procrastination</button>
+                        <button class="example-prompt">How to optimize learning?</button>
+                        <button class="example-prompt">What do ted talks say about Islam and stress</button>
+                    </div>
+                </div>
+                <!-- Chat messages added here -->
+            </div>
+
+            <div class="input-wrapper">
+                <div class="input-container">
+                    <input type="text" id="userInput" placeholder="Type your message..." autocomplete="off">       <button onclick="sendMessage()">📩</button>
+
+                </div>
+                <div class="input-footer">
+                    <span class="disclaimer">TedX may produce inaccurate information. Verify important facts.</span>
+                    <div class="action-btns">
+                        <button class="action-btn" title="Voice input">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button class="action-btn" title="Upload file">
+                            <i class="fas fa-upload"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='particles-config.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
